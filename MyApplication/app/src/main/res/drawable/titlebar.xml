@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--标题栏背景渐变-->
+    <gradient
+        android:startColor="#6495ED"
+        android:endColor="#4169E1"
+        android:angle="0" />
+</shape>
