@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public EditText edt_xsjg;
@@ -25,7 +26,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public String zjlx;
     public String txlx;
     public String mblr;
-    
+    public String cgxj;
+    public Float f_xsjg;
+    public Float f_zxl;
+    public Float f_cgjg;
+    public Float f_yzf;
+    public Float f_zjlx;
+    public Float f_txlx;
+    public Float f_mblr;
+    public Float f_cgxj;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +58,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         exit = (Button) findViewById(R.id.exit);
         reset = (Button) findViewById(R.id.reset);
         count = (Button) findViewById(R.id.count);
+        /*edt_xsjg.setText("");
+        edt_zxl.setText("");
+        edt_cgjg.setText("");
+        edt_yzf.setText("");
+        edt_zjlx.setText("");
+        edt_txlx.setText("");
+        edt_mblr.setText("");*/
     }
 
     private void getCount(){
-        
+        //String a = edt_xsjg.getText().toString().trim();
+        if(edt_xsjg.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入销售价格",Toast.LENGTH_SHORT).show();
+        } else {
+            xsjg = edt_xsjg.getText().toString();
+            f_xsjg = Float.valueOf(xsjg);
+        }
+        //String b =edt_zxl.getText().toString().trim();
+        if(edt_zxl.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入折现率",Toast.LENGTH_SHORT).show();
+        } else {
+            zxl = edt_zxl.getText().toString();
+            f_zxl = Float.valueOf(zxl);
+        }
+        //String c =edt_cgjg.getText().toString().trim();
+        if(edt_cgjg.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入采购价格",Toast.LENGTH_SHORT).show();
+        } else {
+            cgjg = edt_cgjg.getText().toString();
+            f_cgjg = Float.valueOf(cgjg);
+        }
+        //String d = edt_yzf.getText().toString().trim();
+        if(edt_yzf.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入运杂费",Toast.LENGTH_SHORT).show();
+        } else {
+            yzf = edt_yzf.getText().toString();
+            f_yzf = Float.valueOf(yzf);
+        }
+        //String e = edt_zjlx.getText().toString().trim();
+        if(edt_zjlx.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入资金利息",Toast.LENGTH_SHORT).show();
+        } else {
+            zjlx = edt_zjlx.getText().toString();
+            f_zjlx = Float.valueOf(zjlx);
+        }
+        //String f = edt_txlx.getText().toString().trim();
+        if(edt_txlx.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入贴现利息",Toast.LENGTH_SHORT).show();
+        } else {
+            txlx = edt_txlx.getText().toString();
+            f_txlx = Float.valueOf(txlx);
+        }
+        //String g = edt_mblr.getText().toString().trim();
+        if(edt_mblr.getText().toString().trim().length()==0){
+            Toast.makeText(MainActivity.this,"请输入目标利润",Toast.LENGTH_SHORT).show();
+        } else {
+            yzf = edt_mblr.getText().toString();
+            f_mblr = Float.valueOf(mblr);
+        }
+        f_cgxj = f_xsjg+f_zxl+f_cgjg+f_yzf+f_zjlx+f_txlx+f_mblr;
+        cgxj = String.valueOf(f_cgxj);
+        edt_cgxj.setText(cgxj);
     }
 
     @Override
