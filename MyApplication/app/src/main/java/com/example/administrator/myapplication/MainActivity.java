@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edt_txlx = (EditText) findViewById(R.id.edt_txlx);
         edt_mblr = (EditText) findViewById(R.id.edt_mblr);
         edt_cgxj = (EditText) findViewById(R.id.edt_cgxj);
+        edt_xsjg = findViewById(R.id.edt_xsjg);
         exit = (Button) findViewById(R.id.exit);
         reset = (Button) findViewById(R.id.reset);
         count = (Button) findViewById(R.id.count);
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String a = edt_xsjg.getText().toString().trim();
         if(edt_xsjg.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入销售价格",Toast.LENGTH_SHORT).show();
+            return;
         } else {
             xsjg = edt_xsjg.getText().toString();
             f_xsjg = Float.valueOf(xsjg);
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String b =edt_zxl.getText().toString().trim();
         if(edt_zxl.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入折现率",Toast.LENGTH_SHORT).show();
+            return;
         } else {
             zxl = edt_zxl.getText().toString();
             f_zxl = Float.valueOf(zxl);
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String c =edt_cgjg.getText().toString().trim();
         if(edt_cgjg.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入采购价格",Toast.LENGTH_SHORT).show();
+            return;
         } else {
             cgjg = edt_cgjg.getText().toString();
             f_cgjg = Float.valueOf(cgjg);
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String d = edt_yzf.getText().toString().trim();
         if(edt_yzf.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入运杂费",Toast.LENGTH_SHORT).show();
+            return;
         } else {
             yzf = edt_yzf.getText().toString();
             f_yzf = Float.valueOf(yzf);
@@ -99,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String e = edt_zjlx.getText().toString().trim();
         if(edt_zjlx.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入资金利息",Toast.LENGTH_SHORT).show();
+            return;
         } else {
             zjlx = edt_zjlx.getText().toString();
             f_zjlx = Float.valueOf(zjlx);
@@ -106,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String f = edt_txlx.getText().toString().trim();
         if(edt_txlx.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入贴现利息",Toast.LENGTH_SHORT).show();
+            return;
         } else {
             txlx = edt_txlx.getText().toString();
             f_txlx = Float.valueOf(txlx);
@@ -113,11 +120,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String g = edt_mblr.getText().toString().trim();
         if(edt_mblr.getText().toString().trim().length()==0){
             Toast.makeText(MainActivity.this,"请输入目标利润",Toast.LENGTH_SHORT).show();
+            return;
         } else {
-            yzf = edt_mblr.getText().toString();
+            mblr = edt_mblr.getText().toString();
             f_mblr = Float.valueOf(mblr);
         }
-        f_cgxj = f_xsjg+f_zxl+f_cgjg+f_yzf+f_zjlx+f_txlx+f_mblr;
+        f_cgxj = f_xsjg*f_zxl/100-f_yzf-(f_cgjg*f_zjlx/100/30*45)-f_xsjg*f_txlx/100/2-f_mblr;
         cgxj = String.valueOf(f_cgxj);
         edt_cgxj.setText(cgxj);
     }
@@ -127,8 +135,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.exit:
                 finish();
+                break;
             case R.id.reset:
-                edt_cgjg.setText("");
+                edt_xsjg.setText("");
                 edt_zxl.setText("");
                 edt_cgjg.setText("");
                 edt_yzf.setText("");
@@ -136,8 +145,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 edt_txlx.setText("");
                 edt_mblr.setText("");
                 edt_cgxj.setText("");
+                break;
             case R.id.count:
                 getCount();
+                break;
         }
     }
 }

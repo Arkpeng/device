@@ -131,8 +131,8 @@
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/tv_zjlx"
-            android:layout_toRightOf="@id/tv_cgjg" />
+            android:layout_toRightOf="@id/tv_zjlx"
+            android:layout_alignBaseline="@id/tv_zjlx" />
 
         <TextView
             android:id="@+id/tv_txlx"
@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/tv_txlx"
-            android:layout_toRightOf="@id/tv_cgjg" />
+            android:layout_toRightOf="@id/tv_txlx" />
 
         <TextView
             android:id="@+id/tv_mblr"

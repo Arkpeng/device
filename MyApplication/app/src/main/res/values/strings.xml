@@ -4,8 +4,8 @@
     <string name="zxl">折现率(%)</string>
     <string name="cgjg">采购价格</string>
     <string name="yzf">运杂费</string>
-    <string name="zjlx">资金利息</string>
-    <string name="txlx">贴现利息</string>
+    <string name="zjlx">资金利息(%)</string>
+    <string name="txlx">贴现利息(%)</string>
     <string name="mblr">目标利润</string>
     <string name="cgxj">采购限价</string>
     <string name="exit">退出</string>
